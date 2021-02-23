@@ -1,10 +1,10 @@
-package com.squad5.autonomais;
+package com.squad5.connecto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AutonoMaisApplicationTests {
+class ConnectoApplicationTests {
 
 	@Test
 	void contextLoads() {

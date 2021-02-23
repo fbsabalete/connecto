@@ -1,4 +1,4 @@
-package com.squad5.autonomais.model;
+package com.squad5.connecto.model;
 
 import java.util.List;
 

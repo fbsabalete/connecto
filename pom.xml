@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.squad5</groupId>
-	<artifactId>autono-mais</artifactId>
+	<artifactId>connecto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>autono-mais</name>
-	<description>Demo project for Spring Boot</description>
+	<name>connector</name>
+	<description>Projeto Integrador Connector</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
