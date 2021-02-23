@@ -1,4 +1,4 @@
-package com.squad5.autonomais;
+package com.squad5.connecto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
