@@ -29,7 +29,7 @@ public class Postagem
 	
 	@NotNull
 	@Size(min = 3, max = 50)
-	private String descricao_post;
+	private String descricaoPost;
 	
 	@Size(min = 10, max = 500)
 	private String linkImagem;
@@ -43,6 +43,10 @@ public class Postagem
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 	
 	public long getId() {
 		return id;
@@ -60,12 +64,12 @@ public class Postagem
 		this.titulo = titulo;
 	}
 
-	public String getDescricao_post() {
-		return descricao_post;
+	public String getDescricaoPost() {
+		return descricaoPost;
 	}
 
-	public void setDescricao_post(String descricao_post) {
-		this.descricao_post = descricao_post;
+	public void setDescricaoPost(String descricaoPost) {
+		this.descricaoPost = descricaoPost;
 	}
 
 	public String getLinkImagem() {
@@ -99,5 +103,14 @@ public class Postagem
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 }
