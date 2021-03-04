@@ -76,6 +76,14 @@ public class Usuario {
 	public void setTipoAdmin(boolean tipoAdmin) {
 		this.tipoAdmin = tipoAdmin;
 	}
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
 	
 	
 }
