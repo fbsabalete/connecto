@@ -33,7 +33,7 @@ public class Usuario {
 	private String email;
 	
 	@NotNull
-	@Size(min = 5, max = 40)
+	@Size(min = 5, max = 100)
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)

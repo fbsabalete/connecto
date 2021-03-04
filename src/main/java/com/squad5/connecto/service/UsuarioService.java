@@ -1,6 +1,7 @@
 package com.squad5.connecto.service;
 
 import com.squad5.connecto.model.Usuario;
+import com.squad5.connecto.model.UsuarioLogin;
 import com.squad5.connecto.repository.UsuarioRepository;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,18 +31,18 @@ public class UsuarioService {
         return repository.save(usuario);
     }
 
-    public Optional<UserLogin> logar(Optional<UserLogin> user){
+    public Optional<UsuarioLogin> logar(Optional<UsuarioLogin> user){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        Optional<Usuario> usuario = repository.findByEmailIgnoreCase(user.get().getUsuario());
+        Optional<Usuario> usuario = repository.findByEmailIgnoreCase(user.get().getEmail());
 
         if(usuario.isPresent()){
             if(encoder.matches(user.get().getSenha(), usuario.get().getSenha())){
-                String auth = user.get().getUsuario() + ":" + user.get().getSenha();
+                String auth = user.get().getEmail() + ":" + user.get().getSenha();
                 byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
                 String authHeader = "Basic " + new String(encodedAuth);
 
                 user.get().setToken(authHeader);
-                user.get().setUsuario(usuario.get().getNomeCompleto());
+                user.get().setEmail(usuario.get().getEmail());
 
                 return user;
             }
