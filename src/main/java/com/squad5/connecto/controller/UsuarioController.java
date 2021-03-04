@@ -1,6 +1,7 @@
 package com.squad5.connecto.controller;
 
 import com.squad5.connecto.model.Usuario;
+import com.squad5.connecto.model.UsuarioLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
