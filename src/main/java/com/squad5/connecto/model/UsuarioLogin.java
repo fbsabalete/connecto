@@ -7,7 +7,8 @@ public class UsuarioLogin {
     private String email;
     private String senha;
     private String token;
-
+    private boolean tipoAdmin;
+    
     public String getNomeCompleto() {
         return nomeCompleto;
     }
@@ -39,4 +40,13 @@ public class UsuarioLogin {
     public void setToken(String token) {
         this.token = token;
     }
+
+	public boolean isTipoAdmin() {
+		return tipoAdmin;
+	}
+
+	public void setTipoAdmin(boolean tipoAdmin) {
+		this.tipoAdmin = tipoAdmin;
+	}
+    
 }

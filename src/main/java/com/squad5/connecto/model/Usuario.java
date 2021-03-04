@@ -36,6 +36,9 @@ public class Usuario {
 	@Size(min = 5, max = 100)
 	private String senha;
 	
+	@NotNull
+	private boolean tipoAdmin;
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
@@ -64,6 +67,14 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public boolean isTipoAdmin() {
+		return tipoAdmin;
+	}
+
+	public void setTipoAdmin(boolean tipoAdmin) {
+		this.tipoAdmin = tipoAdmin;
 	}
 	
 	
