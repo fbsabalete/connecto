@@ -46,7 +46,19 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
-	
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<Portfolio> portfolio;
+
+	public List<Portfolio> getPortfolio() {
+		return portfolio;
+	}
+
+	public void setPortfolio(List<Portfolio> portfolio) {
+		this.portfolio = portfolio;
+	}
+
 	public long getId() {
 		return id;
 	}
