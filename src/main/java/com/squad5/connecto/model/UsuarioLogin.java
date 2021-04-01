@@ -3,13 +3,24 @@ package com.squad5.connecto.model;
 
 public class UsuarioLogin {
 
+	private long id;
     private String nomeCompleto;
+    private String fotoPerfil;
     private String email;
     private String senha;
     private String token;
-    private boolean tipoAdmin;
+    private String tipoAdmin;
     
-    public String getNomeCompleto() {
+    
+    public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNomeCompleto() {
         return nomeCompleto;
     }
 
@@ -17,7 +28,15 @@ public class UsuarioLogin {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public String getEmail() {
+    public String getFotoPerfil() {
+		return fotoPerfil;
+	}
+
+	public void setFotoPerfil(String fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
+	}
+
+	public String getEmail() {
         return email;
     }
 
@@ -41,12 +60,13 @@ public class UsuarioLogin {
         this.token = token;
     }
 
-	public boolean isTipoAdmin() {
+	public String getTipoAdmin() {
 		return tipoAdmin;
 	}
 
-	public void setTipoAdmin(boolean tipoAdmin) {
+	public void setTipoAdmin(String tipoAdmin) {
 		this.tipoAdmin = tipoAdmin;
 	}
-    
+
+	
 }
