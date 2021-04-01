@@ -29,6 +29,9 @@ public class Usuario {
 	@Size(min = 5, max = 40)
 	private String nomeCompleto;
 	
+	@Size(min = 3, max = 255)
+	private String fotoPerfil;
+	
 	@NotNull
 	@NotEmpty
 	@Email
@@ -41,9 +44,9 @@ public class Usuario {
 	private String senha;
 	
 	@NotNull
-	private boolean tipoAdmin;
+	private String tipoAdmin;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 
@@ -62,34 +65,48 @@ public class Usuario {
 	public long getId() {
 		return id;
 	}
-	
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
+
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
 	}
+
+	public String getFotoPerfil() {
+		return fotoPerfil;
+	}
+
+	public void setFotoPerfil(String fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
+	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getSenha() {
 		return senha;
 	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-	public boolean isTipoAdmin() {
+	public String getTipoAdmin() {
 		return tipoAdmin;
 	}
 
-	public void setTipoAdmin(boolean tipoAdmin) {
+	public void setTipoAdmin(String tipoAdmin) {
 		this.tipoAdmin = tipoAdmin;
 	}
 
@@ -100,6 +117,5 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
 	
 }
