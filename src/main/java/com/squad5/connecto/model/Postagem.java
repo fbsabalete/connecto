@@ -17,7 +17,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_postagem")
-public class Postagem 
+public class 	Postagem
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Postagem
 	private String titulo;
 	
 	@NotNull
-	@Size(min = 3, max = 50)
+	@Size(min = 3, max = 3000)
 	private String descricaoPost;
 	
 	@Size(min = 10, max = 500)
