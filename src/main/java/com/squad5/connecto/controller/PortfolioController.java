@@ -2,6 +2,9 @@ package com.squad5.connecto.controller;
 
 import com.squad5.connecto.model.Portfolio;
 import com.squad5.connecto.repository.PortfolioRepository;
+
+import io.swagger.annotations.ApiOperation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +16,10 @@ import java.util.List;
 @RequestMapping("/portfolio")
 public class PortfolioController {
 
+
     @Autowired
     private PortfolioRepository repository;
-
+    
     @GetMapping
     public ResponseEntity<List<Portfolio>> getAll() {
         return ResponseEntity.ok(repository.findAll());

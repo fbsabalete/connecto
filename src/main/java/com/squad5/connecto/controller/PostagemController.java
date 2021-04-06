@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.squad5.connecto.model.Postagem;
 import com.squad5.connecto.repository.PostagemRepository;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/postagem")
 @CrossOrigin("*")
@@ -27,34 +29,35 @@ public class PostagemController {
 	@Autowired
 	private PostagemRepository repository;
 
+	@ApiOperation("retorna todas as postagens")
 	@GetMapping
 	public ResponseEntity<List<Postagem>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 
 	}
-
+	@ApiOperation("retorna uma postagem")
 	@GetMapping("/{id}")
 	public ResponseEntity<Postagem> getById(@PathVariable long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
-
+	
 	@GetMapping("/prestador/{prestador}")
 	public ResponseEntity<List<Postagem>> getByServico(@PathVariable boolean prestador) {
 		return ResponseEntity.ok(repository.findAllByPrestadorServicos(prestador));
 	}
 
-
+	@ApiOperation("Publica uma postagem")
 	@PostMapping
 	public ResponseEntity<Postagem> post(@RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
-
+	@ApiOperation("altera uma postagens")
 	@PutMapping
 	public ResponseEntity<Postagem> put(@RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
-
+	@ApiOperation("delete uma postagem")
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
