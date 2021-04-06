@@ -2,6 +2,7 @@ package com.squad5.connecto.controller;
 
 import com.squad5.connecto.model.Usuario;
 import com.squad5.connecto.model.UsuarioLogin;
+import com.squad5.connecto.repository.UsuarioRepository;
 import com.squad5.connecto.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,9 @@ import java.util.Optional;
 public class UsuarioController {
 
     @Autowired
+    private UsuarioRepository repository;
+
+    @Autowired
     private UsuarioService usuarioService;
 
     @PostMapping("/logar")
@@ -25,7 +29,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> post(@RequestBody Usuario usuario){
         Optional<Usuario> user = Optional.ofNullable(usuarioService.cadastrarUsuario(usuario));
 
         try {
@@ -34,6 +38,11 @@ public class UsuarioController {
             return ResponseEntity.badRequest().build();
         }
 
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getById (@PathVariable long id){
+        return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
     }
 
 }

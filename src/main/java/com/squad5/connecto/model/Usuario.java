@@ -46,6 +46,7 @@ public class Usuario {
 	@NotNull
 	private String tipoAdmin;
 	
+
 	@NotNull
 	@Size(max = 11)
 	private String telefone;

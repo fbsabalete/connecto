@@ -38,6 +38,13 @@ public class PostagemController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
+
+	@GetMapping("/prestador/{prestador}")
+	public ResponseEntity<List<Postagem>> getByServico(@PathVariable boolean prestador) {
+		return ResponseEntity.ok(repository.findAllByPrestadorServicos(prestador));
+	}
+
+
 	@PostMapping
 	public ResponseEntity<Postagem> post(@RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
