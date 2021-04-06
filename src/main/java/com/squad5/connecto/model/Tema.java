@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,13 +23,11 @@ public class Tema
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotEmpty
 	@NotNull
 	@Size(min = 3, max = 20)
 	private String categoria;
 	
-	@NotNull
-	@Size(min = 3, max = 244)
-	private String descricao;
 
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("tema")
@@ -49,14 +48,6 @@ public class Tema
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public List<Postagem> getPostagem() {
