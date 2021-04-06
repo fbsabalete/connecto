@@ -10,7 +10,7 @@ public class UsuarioLogin {
     private String senha;
     private String token;
     private String tipoAdmin;
-    
+    private String telefone;
     
     public long getId() {
 		return id;
@@ -68,5 +68,13 @@ public class UsuarioLogin {
 		this.tipoAdmin = tipoAdmin;
 	}
 
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
 	
 }

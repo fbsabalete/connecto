@@ -46,11 +46,15 @@ public class Usuario {
 	@NotNull
 	private String tipoAdmin;
 	
+	@NotNull
+	@Size(max = 11)
+	private String telefone;
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Portfolio> portfolio;
 
@@ -108,6 +112,14 @@ public class Usuario {
 
 	public void setTipoAdmin(String tipoAdmin) {
 		this.tipoAdmin = tipoAdmin;
+	}
+	
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public List<Postagem> getPostagem() {
