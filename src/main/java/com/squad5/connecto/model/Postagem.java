@@ -25,10 +25,6 @@ public class Postagem
 	
 	@NotNull
 	@Size(min = 3, max = 50)
-	private String titulo;
-	
-	@NotNull
-	@Size(min = 3, max = 50)
 	private String descricaoPost;
 	
 	@Size(min = 10, max = 500)
@@ -55,15 +51,7 @@ public class Postagem
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
+	
 	public String getDescricaoPost() {
 		return descricaoPost;
 	}
