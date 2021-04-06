@@ -44,5 +44,15 @@ public class UsuarioController {
     public ResponseEntity<Usuario> getById (@PathVariable long id){
         return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
     }
+    
+    @PutMapping
+    public ResponseEntity<Usuario> put(@RequestBody Usuario usuario){
+    	Optional<Usuario> user = Optional.ofNullable(usuarioService.atualizarUsuario(usuario));
 
+        try {
+            return ResponseEntity.ok(user.get());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

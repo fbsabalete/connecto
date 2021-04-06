@@ -23,12 +23,7 @@ public class UsuarioService {
             return null;
         }
 
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-        String senhaEncoder = encoder.encode(usuario.getSenha());
-        usuario.setSenha(senhaEncoder);
-
-        return repository.save(usuario);
+        return repository.save(encriptarSenha(usuario));
     }
 
     public Optional<UsuarioLogin> logar(Optional<UsuarioLogin> user){
@@ -53,4 +48,19 @@ public class UsuarioService {
         }
         return null;
     }
+
+	public Usuario atualizarUsuario(Usuario usuario) {
+		
+		return repository.save(encriptarSenha(usuario));
+	}
+	
+
+	public Usuario encriptarSenha(Usuario usuario){
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        String senhaEncoder = encoder.encode(usuario.getSenha());
+        usuario.setSenha(senhaEncoder);
+        return usuario;
+
+	}
 }
