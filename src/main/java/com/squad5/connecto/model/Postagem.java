@@ -1,15 +1,9 @@
 package com.squad5.connecto.model;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -43,6 +37,10 @@ public class 	Postagem
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
+
+	@OneToMany
+	@JsonIgnoreProperties("postagem")
+	private List<ComentarioPostagem> comentario;
 	
 	public long getId() {
 		return id;
@@ -99,6 +97,12 @@ public class 	Postagem
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+
+	public List<ComentarioPostagem> getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(List<ComentarioPostagem> comentario) {
+		this.comentario = comentario;
+	}
 }
