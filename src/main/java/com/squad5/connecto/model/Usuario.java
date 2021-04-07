@@ -50,6 +50,9 @@ public class Usuario {
 	@NotNull
 	@Size(max = 11)
 	private String telefone;
+
+	@Size(max = 255)
+	private String sobreMim;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -58,6 +61,10 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Portfolio> portfolio;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("usuario")
+	private List<ComentarioPostagem> comentario;
 
 	public List<Portfolio> getPortfolio() {
 		return portfolio;
@@ -130,5 +137,20 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
+
+	public String getSobreMim() {
+		return sobreMim;
+	}
+
+	public void setSobreMim(String sobreMim) {
+		this.sobreMim = sobreMim;
+	}
+
+	public List<ComentarioPostagem> getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(List<ComentarioPostagem> comentario) {
+		this.comentario = comentario;
+	}
 }
