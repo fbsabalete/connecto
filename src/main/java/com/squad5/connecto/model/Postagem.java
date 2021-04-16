@@ -38,7 +38,7 @@ public class 	Postagem
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
 
-	@OneToMany
+	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("postagem")
 	private List<ComentarioPostagem> comentario;
 	
