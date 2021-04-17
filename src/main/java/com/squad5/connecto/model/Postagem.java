@@ -42,6 +42,10 @@ public class 	Postagem
 	@JsonIgnoreProperties("postagem")
 	private List<ComentarioPostagem> comentario;
 	
+	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("postagem")
+	private List<CurtirPostagem> curtir;
+	
 	public long getId() {
 		return id;
 	}
@@ -105,4 +109,13 @@ public class 	Postagem
 	public void setComentario(List<ComentarioPostagem> comentario) {
 		this.comentario = comentario;
 	}
+
+	public List<CurtirPostagem> getCurtir() {
+		return curtir;
+	}
+
+	public void setCurtir(List<CurtirPostagem> curtir) {
+		this.curtir = curtir;
+	}
+	
 }

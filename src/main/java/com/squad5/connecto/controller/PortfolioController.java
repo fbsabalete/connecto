@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/portfolio")
+@CrossOrigin("*")
 public class PortfolioController {
 
 
